@@ -1,0 +1,16 @@
+body{
+    background-color: aquamarine;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0 80px;
+}
+header{
+    text-align: center;
+}
+
+h1, h2, h3{
+    color: red;
+}
+td, th{
+    border-color: darkslategray;
+    border: solid 0.1px;
+}
