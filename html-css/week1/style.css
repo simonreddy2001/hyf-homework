@@ -1,5 +1,6 @@
 body{
-    background-color: aquamarine;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(83,238,220,1) 2%, rgba(0,212,255,1) 100%);
     font-family: 'Courier New', Courier, monospace;
     margin: 0 80px;
 }
@@ -15,4 +16,17 @@ td, th{
 }
 .box {
     background-color: rgb(126, 213, 215);
+    margin-left: 5%;
 }
+.list-tab{
+    margin-left: 8%;
+}
+.tab{
+    margin-left: 5%;
+}
+
+.ref-tab{
+    margin-left: 5%;
+}
+
+
