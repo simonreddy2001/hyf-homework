@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.responsive {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+@media screen and (min-width: 480px) {
+  .responsive {
+      background-color: green
+  }
+}
+@media screen and (mix-width: 700px) {
+    .responsive {
+        background-color: green
+    }
+  }
