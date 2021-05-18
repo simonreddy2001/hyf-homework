@@ -22,11 +22,11 @@ const seriesDurations = [
 const lifeSpan = 80 * 365 * 24 * 60
 let totalSeriesTime = 0
 
-function logOutSeriesText(object) {
+function logOutSeriesText(seriesDurations) {
 
-    for (let i = 0; i < object.length; i++) {
-        seriesTimeInMinutes = (object[i].days * 24 * 60) + (object[i].hours * 60) + object[i].minutes
-        console.log(`${object[i].title} took ${((seriesTimeInMinutes/lifeSpan)*100).toFixed(4)}% of my life`)
+    for (let i = 0; i < seriesDurations.length; i++) {
+        seriesTimeInMinutes = (seriesDurations[i].days * 24 * 60) + (seriesDurations[i].hours * 60) + seriesDurations[i].minutes
+        console.log(`${seriesDurations[i].title} took ${((seriesTimeInMinutes/lifeSpan)*100).toFixed(4)}% of my life`)
         totalSeriesTime += (seriesTimeInMinutes/lifeSpan)*100
     }
     

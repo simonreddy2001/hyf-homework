@@ -39,15 +39,21 @@ function showStatusDate(date){
     }
     return `"You have ${count} activities on the date ${date}"`
 }
-function mostSpentActivity(activities){
-    let highActivity
+
+function mostTimeSpentActivity(activities){
+    let highTimeSpentActivity 
+    let totalDurationInAnActivity
     for(let i=0;i<activities.length;i++){
-         if(activities[i].duration<activities[i+1].duration){
-             highActivity = activities[i+1].activity
-         }
-         else{
-            highActivity = activities[i].activity
-         }
+        for(let j=0;j<activities.length;j++){
+            if(i!==j && activities[i].activity==activities[j].activity){
+                totalDurationInAnActivity = activities[i].duration+activities[j].duration
+                highTimeSpentActivity = activities[j].activity
+            }
+            if(activities[i].duration>=activities[j].duration && activities[i].duration>totalDurationInAnActivity){
+                highTimeSpentActivity = activities[i].activity
+             }
+        }
+         
     }
-    return highActivity
+    return highTimeSpentActivity
 }
