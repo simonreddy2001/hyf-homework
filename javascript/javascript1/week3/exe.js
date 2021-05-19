@@ -80,3 +80,22 @@ let favBand = {
 // Bonus step: create variable called bandInfo which is a string that describes your favorite band
 // You can either use string concatenation or string interpolation 
 // e.g. my favorite band is called ${band.name} and ...
+
+const cat = {
+  name: 'miao',
+  age: 1,
+  'love meat': true,
+}
+console.log(cat['love meat'])
+console.log(cat[name])
+console.log(cat['name'])
+
+
+console.log(cat.name) 
+console.log(cat)
+
+const objectKey = 'age'
+console.log(cat.objectKey)
+console.log(cat[objectKey])
+
+console.log(Object.keys(cat).length)
