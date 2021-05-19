@@ -2,7 +2,12 @@ const notes = [];
 
 function saveNote(content, id) {
     let obj ={content: content, id: id }
-  notes.push(obj)
+    for(let i=0; i<notes.length;i++){
+      if(notes[i].id==id){
+        return "id already used. pls provide another id"
+      }
+    }
+    notes.push(obj)
 }
 
 saveNote("Pick up groceries", 1);
