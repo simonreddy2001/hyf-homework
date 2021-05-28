@@ -2,16 +2,14 @@ let nameC = ""
 let todos = []
 
 function getReply(command){
-    let array = command.split(' ')
+    let arr = command.split(' ')
 if(command.includes("Hello")) {
     let givenName = command.split(' ')
     nameC=givenName[4]
     console.log(`Nice to meet you ${nameC}`)
 }
-else if(!isNaN(array[2])){
-    res = (`${array[2]}${array[3]}${array[4]}`)
-    newRes = res
-    console.log(newRes)
+else if(!isNaN(arr[2])){
+    console.log(eval(command.substring(8)))
 }
 else {
     switch(command){
@@ -53,9 +51,9 @@ getReply("Add singing in the shower to my todo")
 getReply("Remove fishing from my todo")
 getReply("What is on my todo?")
 getReply("what is 3 + 3")
-getReply("Set a timer for 4 minutes")
 getReply("what is 3 * 3")
 getReply("what is 3 - 3")
+getReply("Set a timer for 4 minutes")
 //Hello my name is Benjamin - Should save the name benjamin. and respond with "nice to meet you Benjamin". What if someone writes this twice?
 // What is my name - should respond with the name of the person. What if the name has not yet been mentioned?
 // Add fishing to my todo - Should respond with "fishing added to your todo". Should add fishing to a list of todos
