@@ -40,6 +40,8 @@ else {
         console.log("Timer set for 4 minutes")  
         setTimeout(()=> alert("Timer done"), 4000)
         break;
+    case "What is best language for coding":
+            console.log("JavaScript")
     }
     }
 
@@ -54,6 +56,7 @@ getReply("what is 3 + 3")
 getReply("what is 3 * 3")
 getReply("what is 3 - 3")
 getReply("Set a timer for 4 minutes")
+getReply("What is best language for coding")
 //Hello my name is Benjamin - Should save the name benjamin. and respond with "nice to meet you Benjamin". What if someone writes this twice?
 // What is my name - should respond with the name of the person. What if the name has not yet been mentioned?
 // Add fishing to my todo - Should respond with "fishing added to your todo". Should add fishing to a list of todos
