@@ -1,6 +1,8 @@
 let nameC = ""
 let todos = []
-
+function calc(command){
+    console.log(eval(command.substring(8)))
+}
 function getReply(command){
     let arr = command.split(' ')
 if(command.includes("Hello")) {
@@ -9,7 +11,7 @@ if(command.includes("Hello")) {
     console.log(`Nice to meet you ${nameC}`)
 }
 else if(!isNaN(arr[2])){
-    console.log(eval(command.substring(8)))
+    calc(command);
 }
 else {
     switch(command){
@@ -31,17 +33,21 @@ else {
         break;
     case "What is on my todo?":
         console.log(todos)
-        
+        break;
     case "What day is it today?":
         dateArr = new Date().toDateString().split(" ");
         console.log(`${dateArr[2]}. of ${dateArr[1]} ${dateArr[3]}`)
-
+        break;
     case "Set a timer for 4 minutes":
         console.log("Timer set for 4 minutes")  
         setTimeout(()=> alert("Timer done"), 4000)
         break;
     case "What is best language for coding":
-            console.log("JavaScript")
+        console.log("JavaScript")
+        break;
+    default:
+        console.log("I dint get you")
+        break;
     }
     }
 
