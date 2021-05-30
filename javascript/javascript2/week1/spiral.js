@@ -14,11 +14,7 @@ const spiritNames = [
 function spiritNamesGenerator(name){
     return `${name} - ${spiritNames[parseInt(Math.random()*10)]}`
 }
-
-const btn=document.querySelector('button')
-const sptName=document.querySelector('h3')
-
-btn.addEventListener('click',()=>{
+function showAnimalName(){
     let userName=document.getElementById('inputName').value
     if(userName!==""){
         sptName.innerHTML=spiritNamesGenerator(userName)
@@ -26,7 +22,15 @@ btn.addEventListener('click',()=>{
     else{
         sptName.innerHTML="please provide your name"
     }
+    btn.disabled = true;
+}
+const input = document.getElementById('inputName')
+const btn=document.querySelector('.btn1')
+const btn2=document.querySelector('.btn2')
+const sptName=document.querySelector('h3')
 
-})
+btn.addEventListener('click',showAnimalName)
+btn2.addEventListener('click',showAnimalName)
+input.addEventListener('input',()=> btn.disabled = false)
 
 
