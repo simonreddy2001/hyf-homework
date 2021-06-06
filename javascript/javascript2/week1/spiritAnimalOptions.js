@@ -35,12 +35,12 @@ userOptionSelect.addEventListener('click', ()=> {
   input.innerText= "";
   btn.removeEventListener("click", showAnimalName);
   input.removeEventListener("mouseover", showAnimalName);
-  input.removeEventListener("keydown", showAnimalName);
+  input.removeEventListener("type", showAnimalName);
   if (userChoice === "Click the button") {
     btn.addEventListener("click", showAnimalName);
   } else if (userChoice === "Hover over the input field") {
     input.addEventListener("mouseover", showAnimalName);
   } else if (userChoice === "While I type") {
-    input.addEventListener("keydown", showAnimalName);
+    input.addEventListener("type", showAnimalName);
   }
 })
