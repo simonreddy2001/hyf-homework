@@ -11,17 +11,10 @@ const spiritNames = [
   "The Tiger",
 ];
 
-function spiritNamesGenerator(name) {
-  return `${name} - ${spiritNames[parseInt(Math.random() * 10)]}`;
-}
-
 function showAnimalName() {
-  let userName = document.getElementById("inputName").value;
-  if (userName !== "") {
-    sptName.innerHTML = spiritNamesGenerator(userName);
-  } else {
-    sptName.innerHTML = "please provide your name";
-  }
+  const userName = document.getElementById("inputName").value;
+  userName ? document.querySelector("h3").innerText = `${userName} - ${spiritNames[parseInt(Math.random() * 10)]}` : 
+    document.querySelector("h3").innerText = "please provide your name";
 }
 const input = document.getElementById("inputName");
 const btn = document.querySelector(".btn1");
@@ -32,15 +25,15 @@ let userChoice = "";
 userOptionSelect.addEventListener('click', ()=> {
   userChoice = document.querySelector("input[name = userOption]:checked").value;
   sptName.innerHTML = "please provide your name";
-  input.innerText= "";
+  input.value = "";
   btn.removeEventListener("click", showAnimalName);
   input.removeEventListener("mouseover", showAnimalName);
-  input.removeEventListener("type", showAnimalName);
+  input.removeEventListener("input", showAnimalName);
   if (userChoice === "Click the button") {
     btn.addEventListener("click", showAnimalName);
   } else if (userChoice === "Hover over the input field") {
     input.addEventListener("mouseover", showAnimalName);
   } else if (userChoice === "While I type") {
-    input.addEventListener("type", showAnimalName);
+    input.addEventListener("input", showAnimalName);
   }
 })
