@@ -53,5 +53,9 @@ userCountry.addEventListener("change", ()=>{
         case "england": renderProducts(products.filter(a=>a.shipsTo.includes("England")));break;
     }
 })
-
+userPriceRange.addEventListener("change", ()=>{
+    const searchedPrice = document.getElementById("start").value
+    return searchedPrice ? renderProducts(products.filter(a=>a.price<searchedPrice*1000)) : 
+    renderProducts(products)   
+})
 
