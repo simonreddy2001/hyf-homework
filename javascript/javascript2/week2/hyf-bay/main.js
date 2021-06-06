@@ -45,6 +45,7 @@ userOption.addEventListener("change", ()=>{
 userCountry.addEventListener("change", ()=>{
     const searchedCountry = document.getElementById("countryOption").value
     switch(searchedCountry){
+        case "all": renderProducts(products);break;
         case "denmark": renderProducts(products.filter(a=>a.shipsTo.includes("Denmark")));break;
         case "sweden": renderProducts(products.filter(a=>a.shipsTo.includes("Sweden")));break;
         case "norway": renderProducts(products.filter(a=>a.shipsTo.includes("Norway")));break;
