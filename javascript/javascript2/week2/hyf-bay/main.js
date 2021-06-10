@@ -31,6 +31,11 @@ const userOption = document.getElementById("selectOption");
 const userCountry = document.getElementById("countryOption");
 const userPriceRange = document.getElementById("start");
 
+// userInput.addEventListener("change", (event) => {
+//     const searchedProduct = event.target.value.toLowerCase()
+//     return searchedProduct ? renderProducts(products.filter(a=>a.name.toLowerCase().includes(searchedProduct))) : 
+//     renderProducts(products)   
+// })
 userInput.addEventListener("keyup", ()=>{
     const searchedProduct = document.getElementById("inputName").value.toLowerCase()
     return searchedProduct ? renderProducts(products.filter(a=>a.name.toLowerCase().includes(searchedProduct))) : 
