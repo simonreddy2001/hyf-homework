@@ -39,8 +39,19 @@ function showStatusDate(date){
     }
     return `"You have ${count} activities on the date ${date}"`
 }
-
+//this function returns the most time spent activity
 function mostTimeSpentActivity(activities){
+
+    //check the object which activity similar 
+
+    //we add duration of an activity if it is similar activity ... 
+
+    //highest duration in this collection of similar activities
+
+    
+
+    //return the activity name of most duration we got from above step
+
     let highTimeSpentActivity 
     let totalDurationInAnActivity
     for(let i=0;i<activities.length;i++){
