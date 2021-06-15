@@ -9,7 +9,7 @@ const sCanvas = document.getElementById("s-canvas");
 const lCanvas = document.getElementById("l-canvas");
 let sCount;
 let lCount;
-//camparing counts 
+
 const winner = () => {
     if (sCount === lCount) {
         winnerTag.innerHTML = "Game is draw !!!"
@@ -28,7 +28,6 @@ const winner = () => {
     }
 }
 
-//when button pressed
 gameStartButton.addEventListener("click", startGame);
 function startGame() {
     newGameButton.style.backgroundColor = "green"
