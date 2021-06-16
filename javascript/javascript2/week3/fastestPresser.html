@@ -12,23 +12,24 @@
 <body>
     <h1>Fastest Presser</h1>
     <div class="main">
-        <input type="number" id="game-time"><br><br>
-        <label id="timer"></label>
+        <label for="timer">Time in seconds:</label>
+        <input type="number" id="timer" name="timer" min="1"><br><br>
+
         <button id="start">Start Game</button>
         <button id="newGame">New Game</button>
         <h3 id="gameOver"></h3>
         <h3 id="winner"></h3>
     </div>
 
-    <div class="game-part">
+    <div class="box">
         <div class="s_side">
-            <canvas id="s-canvas"></canvas><br>
+            <canvas id="s-canvas"></canvas>
             <h3>press s</h3><br>
             <p></p>
         </div>
 
         <div class="l_side">
-            <canvas id="l-canvas"></canvas><br>
+            <canvas id="l-canvas"></canvas>
             <h3>press l</h3><br>
             <p></p>
         </div>
@@ -36,7 +37,7 @@
     </div>
 
     <h3 id="winner"></h3>
-    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.13/dist/index.min.js"></script>
+    <script src="node_modules/confetti-js/dist/index.min.js"></script>
     <script src="fastestpresser.js"></script>
 
 </body>

@@ -8,19 +8,14 @@ h1{
     text-align: center;
     font-weight: bold;
     padding: 10px;
+    font-size: larger;
+}
 
-}
-#s-side,#l-side{
-    visibility: hidden;
-    height: 50px;
-    width: 50px;
-}
 .main{
-    
     text-align: center;
 }
 
-.game-part{
+.box{
     display: flex;
     padding: 5%;
 }

@@ -1,4 +1,4 @@
-const userInput = document.getElementById("game-time");
+const userInput = document.getElementById("timer");
 const gameStartButton = document.getElementById("start");
 const newGameButton = document.getElementById("newGame");
 const countOfS = document.querySelector("div.s_side p");
@@ -16,13 +16,14 @@ const winner = () => {
     } else if (sCount > lCount) {
         //celebrate("s-canvas");
         winnerTag.innerHTML = "S is the winner !!!🎉"
-        var confettiSettingsS = { target: 'sCanvas' };
+        var confettiSettingsS = { target: sCanvas };
         var confettis = new ConfettiGenerator(confettiSettingsS);
         confettis.render();
+
     } else {
         //celebrate("l-canvas");
         winnerTag.innerHTML = "L is the winner !!!🎉"
-        var confettiSettingsL = { target: 'lCanvas' };
+        var confettiSettingsL = { target: lCanvas };
         var confettil = new ConfettiGenerator(confettiSettingsL);
         confettil.render();
     }
