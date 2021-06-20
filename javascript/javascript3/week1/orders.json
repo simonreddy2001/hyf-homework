@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "name": "pizza",
+        "Quantity": 1,
+        "Price": {
+            "currency": "dkk",
+            "amount": 300
+        },
+        "add-ons": [
+            "chicken",
+            "ketchup"
+        ],
+        "ListOfDrinks": [
+            "coke",
+            "water"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "biryani",
+        "Price": {
+            "currency": "dkk",
+            "amount": 550
+        },
+        "Quantity": 2,
+        "add-ons": [
+            "mutton",
+            "egg"
+        ],
+        "ListOfDrinks": [
+            "pepsi",
+            "beer"
+        ]
+    }
+]
