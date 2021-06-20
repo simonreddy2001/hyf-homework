@@ -13,6 +13,12 @@ let lCount;
 const winner = () => {
     if (sCount === lCount) {
         winnerTag.innerHTML = "Game is draw !!!"
+        var confettiSettingsS = { target: sCanvas };
+        var confettis = new ConfettiGenerator(confettiSettingsS);
+        confettis.render();
+        var confettiSettingsL = { target: lCanvas };
+        var confettil = new ConfettiGenerator(confettiSettingsL);
+        confettil.render();
     } else if (sCount > lCount) {
         //celebrate("s-canvas");
         winnerTag.innerHTML = "S is the winner !!!🎉"
@@ -68,4 +74,6 @@ newGameButton.addEventListener("click", () => {
     gameStatus.innerHTML = "";
     countOfS.innerHTML = "";
     countOfL.innerHTML = "";
+    sCanvas.remove();
+    lCanvas.remove();
 })

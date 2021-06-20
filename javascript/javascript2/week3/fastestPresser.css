@@ -19,7 +19,10 @@ h1{
     display: flex;
     padding: 5%;
 }
-
+canvas{
+    position: absolute;
+    width: 100%;
+}
 .s_side,.l_side{
     background-color: white;
     width: 50%;
@@ -27,6 +30,7 @@ h1{
     margin: 10px;
     border: 5px solid rgb(36, 146, 154);
     border-radius: 10px;
+    position: relative;
 }
 
 .s_side h3,.l_side h3,.s_side p,.l_side p{
@@ -53,7 +57,7 @@ button {
   button:hover {background-color: #3e8e41}
   
   button:active {
-    background-color: #3e8e41;
+    background-color: #81c183;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
