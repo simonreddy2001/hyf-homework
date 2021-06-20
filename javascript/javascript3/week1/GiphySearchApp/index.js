@@ -4,16 +4,17 @@ const gifSearchWord = document.getElementById("search_word");
 const numOfGifs = document.getElementById("num_gifs");
 
 let userInput = "";
-let userLimit = 0;
+let userLimit = 1;
 
 gifSearchWord.addEventListener("input", (event) => userInput = event.target.value);
 numOfGifs.addEventListener("input", (event) => userLimit = event.target.value);
+const resultDiv = document.createElement("div");
 
 function getGifs() {
+    resultDiv.innerHTML = "";
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=GBqVaF0BqJQ6cFmXKetzAu1SgA2HlFrA&q=${userInput}&limit=${userLimit}&offset=0&rating=g&lang=en`)
         .then(response => response.json())
         .then(api => (api.data.map(item => {
-            const resultDiv = document.createElement("div");
             const gifImage = document.createElement("img");
             gifImage.src = item.images.original.url;
             resultDiv.appendChild(gifImage);
