@@ -9,6 +9,7 @@ window.addEventListener("load", function () {
 function delayStringToLog(delay, stringToLog) {
   setTimeout(() => console.log(stringToLog), delay * 1000)
 }
+
 delayStringToLog(5, "This string logged after 5 seconds");
 delayStringToLog(3, "This string logged after 3 seconds");
 

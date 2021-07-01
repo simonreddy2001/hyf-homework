@@ -1,4 +1,4 @@
-const userInput = document.getElementById("game-time");
+const userInput = document.getElementById("timer");
 const gameStartButton = document.getElementById("start");
 const newGameButton = document.getElementById("newGame");
 const countOfS = document.querySelector("div.s_side p");
@@ -9,26 +9,32 @@ const sCanvas = document.getElementById("s-canvas");
 const lCanvas = document.getElementById("l-canvas");
 let sCount;
 let lCount;
-//camparing counts 
+
 const winner = () => {
     if (sCount === lCount) {
         winnerTag.innerHTML = "Game is draw !!!"
+        var confettiSettingsS = { target: sCanvas };
+        var confettis = new ConfettiGenerator(confettiSettingsS);
+        confettis.render();
+        var confettiSettingsL = { target: lCanvas };
+        var confettil = new ConfettiGenerator(confettiSettingsL);
+        confettil.render();
     } else if (sCount > lCount) {
         //celebrate("s-canvas");
         winnerTag.innerHTML = "S is the winner !!!🎉"
-        var confettiSettingsS = { target: 'sCanvas' };
+        var confettiSettingsS = { target: sCanvas };
         var confettis = new ConfettiGenerator(confettiSettingsS);
         confettis.render();
+
     } else {
         //celebrate("l-canvas");
         winnerTag.innerHTML = "L is the winner !!!🎉"
-        var confettiSettingsL = { target: 'lCanvas' };
+        var confettiSettingsL = { target: lCanvas };
         var confettil = new ConfettiGenerator(confettiSettingsL);
         confettil.render();
     }
 }
 
-//when button pressed
 gameStartButton.addEventListener("click", startGame);
 function startGame() {
     newGameButton.style.backgroundColor = "green"
@@ -68,4 +74,6 @@ newGameButton.addEventListener("click", () => {
     gameStatus.innerHTML = "";
     countOfS.innerHTML = "";
     countOfL.innerHTML = "";
+    sCanvas.remove();
+    lCanvas.remove();
 })

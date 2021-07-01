@@ -3,14 +3,17 @@ let variable = 0;
 const bt1 = document.getElementById("btn")
 const bt2 = document.getElementById("btn2")
 const bt3 = document.getElementById("button3")
+
 bt1.addEventListener('click', () => {
     console.log(variable);
     variable++;
 })
+
 bt2.addEventListener('click', () => {
     console.log(variable);
     variable++;
 })
+
 const fun = () => {
     setTimeout(() => {
         console.log("This text was delayed by 3 seconds");
