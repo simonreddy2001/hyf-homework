@@ -2,8 +2,8 @@ function foo() { return "foo"; }
 function boo() { return "boo"; }
 function zoo() { return "zoo"; }
 
-const funcArray = [foo(), boo(), zoo()]
-funcArray.forEach(func => func)
+const funcArray = [foo, boo, zoo]
+funcArray.forEach(func => func())
 
 //Function declaration
 function noo() { return "its declarative function"; }
