@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "Apple",
+        "Operating System": "MAC OS",
+        "Price": {
+            "currency": "dkk",
+            "amount": 13000
+        },
+        "Specifications": [
+            "LCD monitor",
+            "Resolution 1600x900",
+            "Retina display"
+        ],
+        "extras": [
+            "external webcam",
+            "external hard drive"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Microsoft",
+        "Operating System": "Windows",
+        "Price": {
+            "currency": "dkk",
+            "amount": 12300
+        },
+        "Specifications": [
+            "LCD monitor",
+            "Resolution 1600x900"
+        ],
+        "extras": [
+            "internal webcam",
+            "external hard drive",
+            "carrying case"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Lenovo",
+        "Operating System": "Linux",
+        "Price": {
+            "currency": "dkk",
+            "amount": 10900
+        },
+        "Specifications": [
+            "LCD monitor",
+            "Resolution 1600x900"
+        ],
+        "extras": [
+            "external webcam",
+            "facelock"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Dell",
+        "Operating System": "ubuntu",
+        "Price": {
+            "currency": "dkk",
+            "amount": 300
+        },
+        "Specifications": [
+            "13 LCD monitor",
+            "Resolution 1600x900"
+        ],
+        "extras": [
+            "external webcam",
+            "external wireless adapter"
+        ]
+    }
+]

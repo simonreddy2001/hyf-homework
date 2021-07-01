@@ -1,0 +1,9 @@
+*{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    background-color: aqua;
+}
+img{
+    width: 400px;
+    height: 400px;
+}
