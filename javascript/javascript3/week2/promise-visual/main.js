@@ -22,6 +22,6 @@ function translateOneByOne() {
         })
         .catch(err => console.log(err))
 }
-//ranslateOneByOne()
+//translateOneByOne()
 
 translateAllAtOnce()
