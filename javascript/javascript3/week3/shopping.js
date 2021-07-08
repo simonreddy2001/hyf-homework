@@ -76,9 +76,13 @@ const shoppingCart = new ShoppingCart();
 const flatscreen = new Product("flat-screen", 5000);
 const flatscreen2 = new Product("flat-screen2", 4000);
 const flatscreen3 = new Product("flat-screen3", 3000);
+const dvd = new Product("dvd", 2000);
+const videogame = new Product("videogame", 4000);
 shoppingCart.addProduct(flatscreen);
 shoppingCart.addProduct(flatscreen2);
 shoppingCart.addProduct(flatscreen3);
+shoppingCart.addProduct(dvd);
+shoppingCart.addProduct(videogame);
 shoppingCart.removeProduct(flatscreen2)
 console.log(shoppingCart)
 
