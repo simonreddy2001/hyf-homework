@@ -5,11 +5,11 @@ class Product {
     }
     convertToCurrency(currency) {
         if (currency.toLowerCase().includes('dollar')) {
-            return this.price * 0, 16
+            return this.price * 0.16
         } else if (currency.toLowerCase().includes('euro')) {
-            return this.price * 0, 13
+            return this.price * 0.13
         } else if (currency.toLowerCase().includes('pound')) {
-            return this.price * 0, 12
+            return this.price * 0.12
         } else {
             return this.price
         }
@@ -35,7 +35,7 @@ class ShoppingCart {
     }
 
     getTotal() {
-        return this.products.reduce((a, b) => a.price + b.price)
+        return this.products.reduce((a, b) => a + b.price, 0)
     }
 
     renderProducts() {

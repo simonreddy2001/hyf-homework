@@ -8,7 +8,7 @@ class Repo {
     }
 }
 
-function fetching(repo) {
+function renderUserRepos(repo) {
 
     return fetch(`https://api.github.com/search/repositories?q=user:${repo}`)
         .then(response => response.json())
@@ -41,7 +41,7 @@ function fetching(repo) {
 }
 function getData() {
     Promise.all([
-        fetching(repoUsers[0]), fetching(repoUsers[1]), fetching(repoUsers[2])
+        renderUserRepos(repoUsers[0]), renderUserRepos(repoUsers[1]), renderUserRepos(repoUsers[2])
     ]).then(() => {
         console.log("All fetched")
     })
