@@ -1,34 +1,36 @@
+SET
+  NAMES utf8mb4;
 CREATE Database mealSharing;
 Use mealSharing;
 create Table Meal(
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `title` varchar(255),
-  `description` text,
-  `location` varchar(255),
-  `when` datetime,
-  `max_reservations` int(50),
-  `price` decimal,
-  `created_date` date
-);
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `title` varchar(255),
+    `description` text,
+    `location` varchar(255),
+    `when` datetime,
+    `max_reservations` int(50),
+    `price` decimal,
+    `created_date` date
+  );
 create Table Reservation(
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `number_of_guests` int(50),
-  `meal_id` int(10) unsigned,
-  `created_date` date,
-  `contact_phonenumber` varchar(255),
-  `contact_name` varchar(255),
-  `contact_email` varchar(255),
-  CONSTRAINT `fk_meal_reservation` FOREIGN KEY (`meal_id`) REFERENCES `Meal` (`id`)
-);
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `number_of_guests` int(50),
+    `meal_id` int(10) unsigned,
+    `created_date` date,
+    `contact_phonenumber` varchar(255),
+    `contact_name` varchar(255),
+    `contact_email` varchar(255),
+    CONSTRAINT `fk_meal_reservation` FOREIGN KEY (`meal_id`) REFERENCES `Meal` (`id`)
+  );
 create Table Review(
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `title` varchar(255),
-  `description` text,
-  `meal_id` int(10) unsigned,
-  `stars` int(50),
-  `created_date` date,
-  CONSTRAINT `fk_meal_review` FOREIGN KEY (`meal_id`) REFERENCES `Meal` (`id`)
-);
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `title` varchar(255),
+    `description` text,
+    `meal_id` int(10) unsigned,
+    `stars` int(50),
+    `created_date` date,
+    CONSTRAINT `fk_meal_review` FOREIGN KEY (`meal_id`) REFERENCES `Meal` (`id`)
+  );
 INSERT INTO
   Meal(
     title,
@@ -439,12 +441,12 @@ ORDER BY
   created_date;
 -- Sort all meals by average number of stars in the reviews
 SELECT
-  Meal.id,
   Meal.title,
-  Review.title,
-  Review.stars
+  AVG(Review.stars) as Avg_stars
 FROM
   Meal
-  RIGHT JOIN Review ON Meal.id = Review.meal_id
+  JOIN Review ON Meal.id = Review.meal_id
+GROUP BY
+  Meal.id
 ORDER BY
-  Review.stars;
+  Avg_stars DESC;
