@@ -398,8 +398,8 @@ SELECT
 FROM
   Meal
 WHERE
-  created_date > '2021-08-12'
-  AND created_date < '2021-07-15';
+  created_date > '2021-07-12'
+  AND created_date < '2021-08-15';
 -- Get only specific number of meals fx return only 5 meals
 SELECT
   *
