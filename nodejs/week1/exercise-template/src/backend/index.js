@@ -6,22 +6,60 @@ const path = require("path");
 
 app.get("/", (request, response) => {
   response.send(`
+  <html>
+  <head>
+  <h1>its Home</h1>
+  </head>
     <body>
         <h1>My portfolio</h1>
     </body>
+    </html>
   `);
 });
 
 app.get("/contact", (request, response) => {
   response.send(`
+  <head>
+  <title>Contact</title></head>
     <body>
         <h1>Contact</h1>
         <p>This is a contact page</p>
     </body>
   `);
 });
+app.get("/education", (request, response) => {
+  response.send(`
+  <head>
+  <title>Education</title></head>
+    <body>
+        <h1>Education</h1>
+        <p>This is a Education page</p>
+    </body>
+  `);
+});
+app.get("/skills", (request, response) => {
+  response.send(`
+  <head>
+  <title>Skills</title></head>
+    <body>
+        <h1>Skills</h1>
+        <p>This is a skills page</p>
+    </body>
+  `);
+});
+app.get("/projects", (request, response) => {
+  response.send(`
+  <head>
+  <title>Projects</title></head>
+    <body>
+        <h1>projects</h1>
+        <p>This is a projects page</p>
+        <codeUrl></codeUrl> <previewUrl /> <img />
+    </body>
+  `);
+});
 
-app.get('/test-report', function(requset, response) {
+app.get('/test-report', function (requset, response) {
   response.sendFile(path.join(__dirname + '/test-report.html'));
 });
 
