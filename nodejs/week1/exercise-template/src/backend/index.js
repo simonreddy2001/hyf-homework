@@ -3,6 +3,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const addHead = require("./add_head");
 
 app.get("/", (request, response) => {
   response.send(`
@@ -19,8 +20,7 @@ app.get("/", (request, response) => {
 
 app.get("/contact", (request, response) => {
   response.send(`
-  <head>
-  <title>Contact</title></head>
+  ${addHead('Contact')}
     <body>
         <h1>Contact</h1>
         <p>This is a contact page</p>
