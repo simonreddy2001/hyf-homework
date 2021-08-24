@@ -9,23 +9,11 @@ router.get("/", async (request, response) => {
     console.log("in /api/meals");
     const query = request.query
     console.log(request.query)
-    if (query.maxPrice) {
-      response.send(meals.filter(meal => meal.price <= query.maxPrice)
-      );
-    }
-    else if (query.title) {
-      response.send(meals.filter(meal => meal.title.toLowerCase().includes(query.title))
-      );
-    }
-    else if (query.createdAfter) {
-      response.send(meals.filter(meal => Date.parse(meal.createdAt) >= Date.parse(query.createdAfter))
-      );
-    }
-    else if (query.limit) {
-      response.send(meals.slice(0, query.limit));
-    }
-    else {
-      response.send(meals);
+    if (query.maxPrice || query.title || query.createdAfter || query.limit) {
+      let updatedMeals = meals.filter(meal => query.maxPrice ? meal.price <= query.maxPrice : true)
+        .filter(meal => query.title ? meal.title.toLowerCase().includes(query.title) : true)
+        .filter(meal => query.createdAfter ? Date.parse(meal.createdAt) >= Date.parse(query.createdAfter) : true)
+      query.limit ? response.send(updatedMeals).slice(0, query.limit) : response.send(updatedMeals);
     }
   } catch (error) {
     throw error;
