@@ -13,7 +13,7 @@ router.get("/", async (request, response) => {
       let updatedMeals = meals.filter(meal => query.maxPrice ? meal.price <= query.maxPrice : true)
         .filter(meal => query.title ? meal.title.toLowerCase().includes(query.title) : true)
         .filter(meal => query.createdAfter ? Date.parse(meal.createdAt) >= Date.parse(query.createdAfter) : true)
-      query.limit ? response.send(updatedMeals).slice(0, query.limit) : response.send(updatedMeals);
+      query.limit ? response.send(updatedMeals.slice(0, query.limit)) : response.send(updatedMeals);
     }
   } catch (error) {
     throw error;
