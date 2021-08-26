@@ -13,13 +13,18 @@ router.get("/", async (request, response) => {
     }
 });
 router.get("/:id", async (request, response) => {
-    try {
-        if (typeof parseInt(request.params.id) == "number") {
-            response.send(reservations.filter(reservation => reservation.id === parseInt(request.params.id)));
+
+    if (typeof parseInt(request.params.id) == "number") {
+        const responseData = reservations.filter(reservation => reservation.id === parseInt(request.params.id))
+        if (responseData.length === 0) {
+            return res.status(404).send("Given query does not find any data")
+        }
+        else {
+            return response.send(responseData);
         }
     }
-    catch (error) {
-        throw error;
+    else {
+        return res.status(400).send("Given parameter is not supported")
     }
 });
 
