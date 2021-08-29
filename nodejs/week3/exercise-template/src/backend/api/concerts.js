@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 const router = express.Router();
 const knex = require("../database");
@@ -55,22 +56,26 @@ router.delete("/:id", async (request, response) => {
 router.get("/", async (request, response) => {
   const query = request.query
   console.log(request.query)
-  if ((req.query.maxPrice && isNaN(parseInt(req.query.maxPrice))) ||
-    (req.query.createdAfter && isNaN(Date.parse(req.query.createdAfter)))
-  ) {
-    return res.status(400).send("Given parameter is not supported")
+
+  if (request.query.maxPrice && isNaN(parseInt(request.query.maxPrice))) {
+    const concerts = await knex("concerts").where('price', '>', parseInt(request.query.maxPrice))
+    response.json(concerts);
   }
-  if (query.maxPrice || query.title || query.createdAfter || query.band) {
-    let updatedConcerts = await (query.maxPrice ? knex("concerts").where('price', '>', query.maxPrice) : true)
-      .where(concert => query.title ? concert.title.toLowerCase().includes(query.title) : true)
-      .where(concert => query.createdAfter ? Date.parse(concert.createdAt) >= Date.parse(query.createdAfter) : true)
-      .where(concert => query.band ? concert.band.toLowerCase().includes(query.band) : true)
-    if (updatedConcerts.length === 0) {
-      return res.status(404).send("Given query does not find any data")
-    }
-    else {
-      return response.send(updatedconcerts);
-    }
+  else if (request.query.title) {
+    const concerts = await knex("concerts").where('title', 'like', `%${request.query.title}%`)
+    response.json(concerts);
+  }
+  else if (request.query.createdAfter && isNaN(Date.parse(request.query.createdAfter))) {
+    const concerts = await knex("concerts").where('created_date', '>', '2020-01-01')
+    response.json(concerts);
+  }
+  else if (request.query.band) {
+    const concerts = await knex("concerts").where('band', 'like', `%${request.query.band}%`)
+    response.json(concerts);
+  }
+  else {
+    return response.status(404).send("Given query does not find any data")
   }
 });
+
 module.exports = router;
