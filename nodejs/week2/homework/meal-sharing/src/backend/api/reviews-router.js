@@ -17,14 +17,14 @@ router.get("/:id", async (request, response) => {
     if (typeof parseInt(request.params.id) == "number") {
         const responseData = reviews.filter(review => review.id === parseInt(request.params.id))
         if (responseData.length === 0) {
-            return res.status(404).send("Given query does not find any data")
+            return response.status(404).send("Given query does not find any data")
         }
         else {
             return response.send(responseData);
         }
     }
     else {
-        return res.status(400).send("Given parameter is not supported")
+        return response.status(400).send("Given parameter is not supported")
     }
 });
 module.exports = router;
