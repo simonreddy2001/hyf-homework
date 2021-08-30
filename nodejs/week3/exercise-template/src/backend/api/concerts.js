@@ -58,7 +58,7 @@ router.get("/", async (request, response) => {
   console.log(request.query)
 
   if (request.query.maxPrice && isNaN(parseInt(request.query.maxPrice))) {
-    const concerts = await knex("concerts").where('price', '>', parseInt(request.query.maxPrice))
+    const concerts = await knex("concerts").where('price', '<', parseInt(request.query.maxPrice))
     response.json(concerts);
   }
   else if (request.query.title) {
@@ -66,7 +66,7 @@ router.get("/", async (request, response) => {
     response.json(concerts);
   }
   else if (request.query.createdAfter && isNaN(Date.parse(request.query.createdAfter))) {
-    const concerts = await knex("concerts").where('created_date', '>', '2020-01-01')
+    const concerts = await knex("concerts").where('created_date', '>', Date.parse(request.query.createdAfter))
     response.json(concerts);
   }
   else if (request.query.band) {
