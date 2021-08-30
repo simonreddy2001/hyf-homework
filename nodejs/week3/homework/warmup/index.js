@@ -45,6 +45,11 @@ app.post("/calculator/multiply", (req, res) => {
     const result = keys.reduce((a, b) => parseInt(a) * parseInt(b))
     res.send(`Multiplication of given parameters is ${result}`)
 })
+app.post("/calculator/subtraction", (req, res) => {
+    const query = req.body
+    const keys = Object.values(query)
+    res.send(`Division of given parameters is ${keys[0] - keys[1]}`)
+})
 app.post("/calculator/division", (req, res) => {
     const query = req.body
     const keys = Object.values(query)
