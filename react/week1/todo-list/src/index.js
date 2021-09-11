@@ -4,7 +4,6 @@ import './index.css';
 import Todo from './Todo';
 import todos from './todos';
 
-
 ReactDOM.render(
   <>
     <h1>Todo List</h1>
