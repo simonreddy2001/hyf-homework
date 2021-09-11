@@ -56,3 +56,4 @@ app.post("/calculator/division", (req, res) => {
     res.send(`Division of given parameters is ${keys[0] / keys[1]}`)
 })
 app.listen(3000, () => console.log(`Calculator:listening on port 3000`));
+
