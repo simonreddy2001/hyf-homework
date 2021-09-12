@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 const Header = function () {
 
-    const [timer, settimer] = useState(0);
+    const [timer, setTimer] = useState(0);
 
     setTimeout(() => {
-        settimer(timer + 1)
+        setTimer(timer + 1)
     }, 1000)
 
     return <>

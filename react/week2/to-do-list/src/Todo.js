@@ -5,11 +5,12 @@ import React, { useState } from 'react';
 
 const Todo = function (props) {
 
-  const [checked, setchecked] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   return <>
-    <li key={props.id} style={{ textDecorationLine: checked ? 'line-through' : 'none' }}>{props.todo}</li>
-    <input type='checkbox' onClick={() => setchecked(!checked)}></input>
+    <li style={{ textDecorationLine: checked ? 'line-through' : 'none' }}>{props.todo}</li>
+    <input id={props.id} type='checkbox' onClick={() => setChecked(!checked)}></input>
+    <label htmlFor={props.id}></label>
   </>
 }
 
