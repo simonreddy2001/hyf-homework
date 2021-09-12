@@ -21,7 +21,13 @@ const App = function () {
             <button onClick={() => setList(list.concat(newTodo))}>Add Todo</button>
 
             <ul>
-                {list.length !== 0 ? list.map((aTodo, i) => <><Todo key={i} todo={aTodo.todo} /><br /><button onClick={() => deleteItem(aTodo.id)}>Delete</button></>) : <h1>No todos left</h1>}
+                {list.length !== 0 ? list.map((aTodo) =>
+                    <div key={aTodo.id}>
+                        <Todo key={aTodo.id} todo={aTodo.todo} />
+                        <br />
+                        <button onClick={() => deleteItem(aTodo.id)}>Delete</button>
+                    </div>
+                ) : <h1>No todos left</h1>}
                 {console.log(list)}
             </ul>
         </div>

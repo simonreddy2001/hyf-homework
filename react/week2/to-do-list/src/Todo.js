@@ -8,8 +8,11 @@ const Todo = function (props) {
   const [checked, setChecked] = useState(false);
 
   return <>
-    <li style={{ textDecorationLine: checked ? 'line-through' : 'none' }}>{props.todo}</li>
-    <input id={props.id} type='checkbox' onClick={() => setChecked(!checked)}></input>
+
+
+    <li key={props.id} style={{ textDecorationLine: checked ? 'line-through' : 'none' }}>{props.todo}</li>
+    <input type='checkbox' onClick={() => setChecked(!checked)}></input>
+
   </>
 }
 
