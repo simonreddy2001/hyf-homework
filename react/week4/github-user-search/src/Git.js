@@ -6,14 +6,17 @@ const Git = () => {
 
     const [search, setsearch] = React.useState('');
     const [users, setUsers] = React.useState([]);
-    // const [error, setError] = React.useState();
+    const [error, setError] = React.useState();
     const [isLoading, setIsLoading] = React.useState(false);
-    const getUsers = async () => {
+    const getUsers = async (search) => {
         if (search !== "") {
             setIsLoading(true);
             await fetch(`https://api.github.com/search/users?q=${search}&limit=20`)
                 .then((response) => response.json())
                 .then((data) => {
+                    if (data.message) {
+                        setError(data.message);
+                    }
                     setUsers(data.items)
                     setIsLoading(false);
                 })
@@ -23,10 +26,10 @@ const Git = () => {
     }
 
     useEffect(() => {
-        getUsers();
+        getUsers(search);
     }, [search]);
 
-    const githubUserContent = { search, users, isLoading }
+    const githubUserContent = { search, error, users, isLoading }
     return (
         <GitUserProvider value={githubUserContent}>
             <h1>GitHub User Searcher</h1>

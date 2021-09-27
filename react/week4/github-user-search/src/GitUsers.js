@@ -9,7 +9,7 @@ const GitUsers = () => {
                 <h3>Loading</h3>
             ) : (
                 <ul>
-                    {githubUserContext.users.length < 1 ?
+                    {githubUserContext.error ? <p>{githubUserContext.error}</p> : githubUserContext.users.length < 1 ?
                         <p>No Results Found</p>
                         : githubUserContext.users.map((user) =>
                             <li key={user.id}>
