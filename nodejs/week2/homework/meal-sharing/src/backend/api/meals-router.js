@@ -6,25 +6,28 @@ const meals = require("../data/meals.json");
 router.get("/", async (request, response) => {
   console.log(meals);
   console.log("in /api/meals");
-  const query = request.query
+  const query1 = request.query
   console.log(request.query)
-  if ((req.query.maxPrice && isNaN(parseInt(req.query.maxPrice))) ||
-    (req.query.createdAfter && isNaN(Date.parse(req.query.createdAfter))) ||
-    (req.query.limit && isNaN(parseInt(req.query.limit)))
+
+  if ((query1.maxPrice && isNaN(parseInt(query1.maxPrice))) ||
+    (query1.createdAfter && isNaN(Date.parse(query1.createdAfter))) ||
+    (query1.limit && isNaN(parseInt(query1.limit)))
   ) {
     return response.status(400).send("Given parameter is not supported")
   }
-  if (query.maxPrice || query.title || query.createdAfter || query.limit) {
-    let updatedMeals = meals.filter(meal => query.maxPrice ? meal.price <= query.maxPrice : true)
-      .filter(meal => query.title ? meal.title.toLowerCase().includes(query.title) : true)
-      .filter(meal => query.createdAfter ? Date.parse(meal.createdAt) >= Date.parse(query.createdAfter) : true)
+
+  if (query1.maxPrice || query1.title || query1.createdAfter || query1.limit) {
+    let updatedMeals = meals.filter(meal => query1.maxPrice ? meal.price <= query1.maxPrice : true)
+      .filter(meal => query1.title ? meal.title.toLowerCase().includes(query1.title) : true)
+      .filter(meal => query1.createdAfter ? Date.parse(meal.createdAt) >= Date.parse(query1.createdAfter) : true)
     if (updatedMeals.length === 0) {
       return response.status(404).send("Given query does not find any data")
     }
     else {
-      return query.limit ? response.send(updatedMeals.slice(0, query.limit)) : response.send(updatedMeals);
+      return query1.limit ? response.send(updatedMeals.slice(0, query1.limit)) : response.send(updatedMeals);
     }
   }
+  else { return response.send(meals) }
 });
 
 router.get("/:id", async (request, response) => {
