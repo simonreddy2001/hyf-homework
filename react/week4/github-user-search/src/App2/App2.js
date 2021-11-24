@@ -23,7 +23,6 @@ const App2 = () => {
             <Page />
         </FontProvider>
     );
-
 }
 
 export default App2;

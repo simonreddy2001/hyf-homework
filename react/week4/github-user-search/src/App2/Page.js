@@ -5,6 +5,7 @@ import Header from './Header';
 const Page = (props) => {
 
     return (
+
         <div>
             <Header />
             <Footer />
