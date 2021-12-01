@@ -13,6 +13,7 @@ const GitUsers = () => {
                         <p>No Results Found</p>
                         : githubUserContext.users.map((user) =>
                             <li key={user.id}>
+                                <img src={user.avatar_url} alt="" width="3%" />
                                 <a href={`https://www.github.com/${user.login}`} rel="noopener noreferrer" target="_blank">
                                     {user.login}
                                 </a>
